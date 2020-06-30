@@ -37,3 +37,14 @@ cdef extern from "messaging.hpp":
     Poller * create()
     void registerSocket(SubSocket *)
     vector[SubSocket*] poll(int) nogil
+
+  #cdef cppclass SubMaster:
+  #  SubMaster(const vector[const char *] &service_list,
+  #            const char *address = nullptr, const std::initializer_list<const char *> &ignore_alive)
+  #  int update(int timeout = 1000)
+  #  bool allAlive(const std::initializer_list<const char *> &service_list = {})
+  #  bool allValid(const std::initializer_list<const char *> &service_list = {})
+  #  bool allAliveAndValid(const std::initializer_list<const char *> &service_list = {})
+  #  bool updated(const char *name)
+  #  void drain()
+  #  cereal::Event::Reader &operator[](const char *name)

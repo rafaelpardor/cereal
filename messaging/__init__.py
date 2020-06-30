@@ -9,6 +9,9 @@ from cereal.services import service_list
 assert MultiplePublishersError
 assert MessagingError
 
+from .messaging_pyx import SubMaster
+assert SubMaster
+
 # sec_since_boot is faster, but allow to run standalone too
 try:
   from common.realtime import sec_since_boot
@@ -129,7 +132,7 @@ def get_one_can(logcan):
     if len(can.can) > 0:
       return can
 
-class SubMaster():
+class SubMaster_old():
   def __init__(self, services, ignore_alive=None, addr="127.0.0.1"):
     self.poller = Poller()
     self.frame = -1
